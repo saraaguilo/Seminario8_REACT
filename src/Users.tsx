@@ -13,13 +13,13 @@ function Users() {
     const [users, setUsers] = useState<User[]>([]);
 
     useEffect(() => {
-        axios.get('http://localhost:9090/users/readall')
+        axios.get('http://localhost:9090/')
         .then((result) => setUsers(result.data))
         .catch((err) => console.log(err))
     }, [])
 
     const handleDelete = (_id: string) => {
-        axios.delete(`http://localhost:9090/users/deleteuser/${_id}`)
+        axios.delete(`http://localhost:9090/${_id}`)
         .then(res => console.log(res))
         .catch(err => console.log(err))
     }
